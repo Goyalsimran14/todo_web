@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}My To-Do List{% endblock %}</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body class="bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-900 text-gray-200 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="w-full py-6 px-8 bg-gray-900 border-b border-gray-700 flex items-center justify-center shadow-lg">
+    <h1 class="text-4xl font-extrabold tracking-wide text-indigo-400 drop-shadow-lg select-none">🗒️ Pro Dark To-Do List</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-6 py-10 max-w-3xl">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-4 text-center text-gray-500 border-t border-gray-700 select-none text-sm">
+    &copy; 2025 YourName. Built with Flask & Tailwind CSS
+  </footer>
+
+</body>
+</html>

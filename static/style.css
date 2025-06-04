@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #121212;
+  color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #90caf9;
+}
+
+.task-form input,
+.task-form select,
+.task-form button {
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #2c2c2c;
+  color: #fff;
+}
+
+.task-form .time-select {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.task-form button {
+  background-color: #2979ff;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.task-form button:hover {
+  background-color: #1565c0;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.task-list li {
+  background: #2b2b2b;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.task-list li.complete {
+  text-decoration: line-through;
+  color: #888;
+  background: #3a3a3a;
+}
+
+.task-list .actions {
+  float: right;
+  margin-top: -25px;
+}
+
+.task-list .actions a {
+  margin-left: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.task-list .actions a:hover {
+  color: #f44336;
+}

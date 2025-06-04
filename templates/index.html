@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>📝 To-Do List</h1>
+
+    <form method="POST" class="task-form">
+      <input type="text" name="task" placeholder="Enter your task..." required />
+
+      <input type="date" name="due_date" required />
+
+      <div class="time-select">
+        <select name="due_hour" required>
+          {% for h in range(1, 13) %}
+          <option value="{{ h }}">{{ '%02d' % h }}</option>
+          {% endfor %}
+        </select>
+
+        <span>:</span>
+
+        <select name="due_minute" required>
+          {% for m in range(0, 60) %}
+          <option value="{{ '%02d' % m }}">{{ '%02d' % m }}</option>
+          {% endfor %}
+        </select>
+
+        <select name="due_ampm" required>
+          <option value="AM">AM</option>
+          <option value="PM">PM</option>
+        </select>
+      </div>
+
+      <button type="submit">➕ Add Task</button>
+    </form>
+
+    <ul class="task-list">
+      {% for todo in todos %}
+      <li class="{{ 'complete' if todo.complete else '' }}">
+        <span>{{ todo.task }}</span><br>
+        <small>Due: {{ todo.due_date.strftime('%b %d, %Y – %I:%M %p') if todo.due_date else 'No due date' }}</small>
+        <div class="actions">
+          <a href="{{ url_for('complete', todo_id=todo.id) }}">✔️</a>
+          <a href="{{ url_for('delete', todo_id=todo.id) }}">🗑️</a>
+        </div>
+      </li>
+      {% else %}
+      <li>No tasks yet!</li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
